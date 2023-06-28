@@ -9,31 +9,24 @@ class AgendaAmigos:
         self.ventana.title("Agenda de Amigos")
         self.ventana.geometry("300x300")
 
-        # Etiqueta para mostrar información
         self.etiqueta = tk.Label(self.ventana, text="")
         self.etiqueta.pack()
 
-        # Frame para contener los botones
         self.frame_botones = tk.Frame(self.ventana)
         self.frame_botones.pack(pady=10)
 
-        # Botón Crear
         self.boton_crear = tk.Button(self.frame_botones, text="Crear", command=self.crear_amigo)
         self.boton_crear.pack(side="left", padx=5)
 
-        # Botón Leer
         self.boton_leer = tk.Button(self.frame_botones, text="Leer", command=self.leer_amigo)
         self.boton_leer.pack(side="left", padx=5)
 
-        # Botón Actualizar
         self.boton_actualizar = tk.Button(self.frame_botones, text="Actualizar", command=self.abrir_ventana_actualizar)
         self.boton_actualizar.pack(side="left", padx=5)
 
-        # Botón Borrar
         self.boton_borrar = tk.Button(self.frame_botones, text="Borrar", command=self.abrir_ventana_borrar)
         self.boton_borrar.pack(side="left", padx=5)
 
-        # Carpeta de destino
         self.carpeta_destino = ""
 
     def crear_amigo(self):
@@ -72,21 +65,18 @@ class AgendaAmigos:
         ventana_actualizar = tk.Toplevel(self.ventana)
         ventana_actualizar.title("Nuevo contacto")
 
-        # Etiqueta y campo de texto para Nombre de contacto
         label_nombre = tk.Label(ventana_actualizar, text="Nombre de contacto:")
         label_nombre.pack()
         self.entry_nombre = tk.Entry(ventana_actualizar, validate="key")
         self.entry_nombre.pack()
         self.entry_nombre.config(validatecommand=(self.entry_nombre.register(self.validar_nombre), "%P"))
 
-        # Etiqueta y campo de texto para Teléfono
         label_telefono = tk.Label(ventana_actualizar, text="Teléfono:")
         label_telefono.pack()
         self.entry_telefono = tk.Entry(ventana_actualizar, validate="key")
         self.entry_telefono.pack()
         self.entry_telefono.config(validatecommand=(self.entry_telefono.register(self.validar_telefono), "%P"))
 
-        # Botón Crear
         boton_crear = tk.Button(ventana_actualizar, text="Crear", command=self.crear_contacto)
         boton_crear.pack(pady=10)
 
@@ -124,13 +114,11 @@ class AgendaAmigos:
         ventana_borrar = tk.Toplevel(self.ventana)
         ventana_borrar.title("Borrar contacto")
 
-        # Etiqueta y campo de texto para Nombre de contacto a borrar
         label_nombre = tk.Label(ventana_borrar, text="Nombre de contacto:")
         label_nombre.pack()
         self.entry_borrar_nombre = tk.Entry(ventana_borrar)
         self.entry_borrar_nombre.pack()
 
-        # Botón Eliminar
         boton_eliminar = tk.Button(ventana_borrar, text="Eliminar", command=self.eliminar_contacto)
         boton_eliminar.pack(pady=10)
 
